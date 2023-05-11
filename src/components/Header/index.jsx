@@ -27,7 +27,7 @@ const Header = () => {
                             <NavButtons>Como usar</NavButtons>
                         </Link>
 
-                        <Link to={'#'} style={{ textDecoration: 'none' }}>
+                        <Link to={'/login'} style={{ textDecoration: 'none' }}>
                             <NavButtons>Cadastre-se</NavButtons>
                         </Link>
 
