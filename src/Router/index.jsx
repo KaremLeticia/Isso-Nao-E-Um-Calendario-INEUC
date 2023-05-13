@@ -5,6 +5,7 @@ import {
 
 import ErrorPage from "../Pages/ErrorPage";
 import Login from "../Pages/Login";
+import SignUp from "../Pages/SignUp";
 import Home from "../Pages/Home";
 import Help from "../Pages/Help";
 
@@ -29,6 +30,11 @@ const Router = () => {
         {
             path: "/ajuda",
             element: <Help/>,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/signup",
+            element: <SignUp/>,
             errorElement: <ErrorPage />,
         }
     ]);
