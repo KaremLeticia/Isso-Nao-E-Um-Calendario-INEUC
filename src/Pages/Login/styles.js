@@ -6,23 +6,44 @@ export const LoginContainer = styled.section`
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #4DA7FF;
+`;
+
+export const DisplayContent = styled.div`
+    width: 700px;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #1565C0;
+`;
+
+export const DisplayImg = styled.img`
+    width: 90%;
 `;
 
 export const LoginContent = styled.div`
-    width: 400px;
-    height: 600px;
+    width: 700px;
+    height: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    border: 1px solid;
-    border-radius: 15px;
+    background-color: #FFFFFF;
 `;
 
 export const LoginTitle = styled.h1`
-    font-size: 16px;
+    font-size: 22px;
+    margin-bottom: 50px;
 `;
 
- export const Span = styled.span`
+export const Span = styled.span`
     font-weight: 600;
+ `;
+
+export const InputArea = styled.div`
+    height: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
  `;
