@@ -77,6 +77,9 @@ const SignUp = () => {
                             onChange={handleConfirmedEmailChange}
                             value={confirmedEmail}
                             error={emailError}
+                            helperText={
+                                passwordError ? "Por favor, verifique se os e-mails digitados são iguais" : null
+                            }
                         />
                         <TextField
                             sx={{ width: '30rem', marginTop: '15px' }}
@@ -93,6 +96,9 @@ const SignUp = () => {
                             onChange={handleConfirmedPasswordChange}
                             value={confirmedPassword}
                             error={passwordError}
+                            helperText={
+                                passwordError ? "Por favor, verifique se as senhas estão iguais" : null
+                            }
                         />
                     </InputArea>
 
