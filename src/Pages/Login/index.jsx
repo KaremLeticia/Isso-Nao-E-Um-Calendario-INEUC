@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { UserContext } from '../../Context/UserContext'
 
 import {
     LoginContainer,
@@ -18,6 +19,7 @@ import calendar from '../../assets/calendar.svg'
 const Login = () => {
 
     const navigate = useNavigate()
+    const {userAuth} = useContext(UserContext)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -52,7 +54,7 @@ const Login = () => {
                     <Button 
                         sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
                         variant='contained'
-                        onClick={() => navigate('/home')/* Função autenticar login */}
+                        onClick={() => {userAuth(email, password); navigate('/home')}/* Função autenticar login */}
                     >
                         ENTRAR
                     </Button>
