@@ -7,11 +7,19 @@ const GlobalStyles = createGlobalStyle`
         font-family: 'Roboto';
     }
 
-    body {
+    #root {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* body {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
+    } */
 `;
 
 export default GlobalStyles;

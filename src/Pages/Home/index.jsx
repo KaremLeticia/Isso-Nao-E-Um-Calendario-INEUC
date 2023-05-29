@@ -1,22 +1,20 @@
 import { Link } from 'react-router-dom'
 
 import {
-    CarouselContent
+    MainContent
 } from './styles'
 
 import Header from '../../components/Header'
+import Days from '../../components/Days'
 import Carrossel from '../../components/Carousel'
 
 const Home = () => {
     return (
         <>
             <Header />
-            <div>Home</div>
-            <Link to={'/test'}><button>Next Page</button></Link>
-
-            <CarouselContent>
-                <Carrossel />
-            </CarouselContent>
+            <MainContent>
+                <Days/>
+            </MainContent>            
 
         </>
 

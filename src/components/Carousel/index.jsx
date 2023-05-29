@@ -26,6 +26,8 @@ const Carrossel = () => {
                 <Item>
                     <Img src={panda}/>
                 </Item>
+                
+                
             </Slider>
         </>
     )

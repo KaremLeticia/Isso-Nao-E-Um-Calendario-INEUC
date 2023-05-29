@@ -1,7 +1,8 @@
 import { styled } from "styled-components";
 
-export const CarouselContent = styled.section`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+export const MainContent = styled.section`
+    width: 800px;
+    height: 600px;
+    border: 1px solid black;
 `;
+

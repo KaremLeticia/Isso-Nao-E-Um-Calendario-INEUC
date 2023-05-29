@@ -27,7 +27,7 @@ const Login = () => {
     return (
         <>
             <LoginContainer>
-
+                
                 <DisplayContent>
                     <DisplayImg src={calendar}/>
                 </DisplayContent>
