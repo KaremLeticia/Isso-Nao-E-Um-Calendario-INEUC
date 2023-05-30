@@ -34,5 +34,5 @@ export const DaysArea = styled.ul`
 `;
 
 export const Items = styled.li`
-
+    
 `;
