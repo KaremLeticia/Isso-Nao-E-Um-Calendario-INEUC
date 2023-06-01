@@ -4,7 +4,9 @@ import { useContext } from 'react'
 import { UserContext } from '../../Context/UserContext'
 
 import {
-    MainContent
+    WelcomeArea,
+    MainContent,
+    Title
 } from './styles'
 
 import Header from '../../components/Header'
@@ -19,7 +21,11 @@ const Home = () => {
         <>
             <Header />
 
-            <h1>Bem vindo {user}</h1>
+            <WelcomeArea>
+
+                <Title>Bem vindo, {user}</Title>
+
+            </WelcomeArea>
 
             <MainContent>
                 <Days/>
