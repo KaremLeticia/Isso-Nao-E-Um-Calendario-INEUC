@@ -1,21 +1,21 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useEffect } from 'react'
+import { auth, firestore } from '../../../firebase'
 
 import { UserContext } from '../../Context/UserContext'
 
 import {
     WelcomeArea,
     MainContent,
-    Title
+    Title,
+    HabbitContent,
 } from './styles'
 
 import Header from '../../components/Header'
 import Days from '../../components/Days'
-import Carrossel from '../../components/Carousel'
+import Habbit from '../../components/Habbit'
 
 const Home = () => {
-
-    const {user} = useContext(UserContext)
 
     return (
         <>
@@ -23,13 +23,23 @@ const Home = () => {
 
             <WelcomeArea>
 
-                <Title>Bem vindo, {user}</Title>
+                <Title>Bem vindo!</Title>
 
             </WelcomeArea>
 
             <MainContent>
-                <Days/>
-            </MainContent>            
+                <Days />
+
+                <HabbitContent>
+
+                    <Habbit/>
+                    <Habbit/>
+                    <Habbit/>
+                    <Habbit/>
+
+                </HabbitContent>
+
+            </MainContent>
 
         </>
 

@@ -17,7 +17,7 @@ const Days = () => {
 
             <DaysArea>
 
-                <Items>Segunda-feira</Items>
+                <Items>Segunda</Items>
                 <Items>Terça</Items>
                 <Items>Quarta</Items>
                 <Items>Quinta</Items>

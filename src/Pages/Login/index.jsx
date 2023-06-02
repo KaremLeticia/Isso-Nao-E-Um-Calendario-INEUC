@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext'
 
 import {
@@ -9,7 +9,8 @@ import {
     LoginContent,
     LoginTitle,
     Span,
-    InputArea
+    InputArea,
+    Question
 } from './styles'
 
 import { TextField, Button } from '@mui/material'
@@ -18,18 +19,18 @@ import calendar from '../../assets/calendar.svg'
 
 const Login = () => {
 
-    const navigate = useNavigate()
-    const {userAuth} = useContext(UserContext)
+    const { userAuth } = useContext(UserContext)
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+
     return (
         <>
             <LoginContainer>
-                
+
                 <DisplayContent>
-                    <DisplayImg src={calendar}/>
+                    <DisplayImg src={calendar} />
                 </DisplayContent>
 
                 <LoginContent>
@@ -37,13 +38,13 @@ const Login = () => {
                     <LoginTitle>Faça seu <Span>Login</Span></LoginTitle>
 
                     <InputArea>
-                        <TextField 
+                        <TextField
                             sx={{ width: '30rem' }}
                             placeholder='E-mail'
                             type='email'
                             onChange={(event) => setEmail(event.target.value)}
                         />
-                        <TextField 
+                        <TextField
                             sx={{ width: '30rem' }}
                             placeholder='Senha'
                             type='password'
@@ -51,13 +52,17 @@ const Login = () => {
                         />
                     </InputArea>
 
-                    <Button 
-                        sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
-                        variant='contained'
-                        onClick={() => {userAuth(email, password); navigate('/home')}/* Função autenticar login */}
-                    >
-                        ENTRAR
-                    </Button>
+                        <Button
+                            sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
+                            variant='contained'
+                            onClick={() => {userAuth(email, password)}}/* Função autenticar login */
+                        >
+                            ENTRAR
+                        </Button>
+
+                    <Link to='SignUp' style={{ textDecoration: 'none' }}>
+                        <Question>Não possui uma conta?</Question>
+                    </Link>
 
                 </LoginContent>
 

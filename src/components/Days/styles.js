@@ -26,13 +26,13 @@ export const CreateItem = styled.button`
 
 export const DaysArea = styled.ul`
     width: 60%;
-    height: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
     list-style: none;
+    margin-right: 10px;
 `;
 
 export const Items = styled.li`
-    
+
 `;

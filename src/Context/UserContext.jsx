@@ -5,21 +5,25 @@ export const UserContext = createContext({})
 
 function UserProvider({ children }) {
 
-    const [user, setUser] = useState()
-
+    const [userId, setUserId] = useState()
+    
     const userAuth = async (email, password) => {
 
         let threwError = false;
-        await auth.signInWithEmailAndPassword(email, password).catch((error) => {
-            alert(error.message);
-            threwError = true;
-        });
+        await auth.signInWithEmailAndPassword(email, password)
+            .catch((error) => {
+                threwError = true;
+            });
 
         if (!threwError) {
-            navigation.navigate('/Home')
+            
+            navigation.navigate('home')
+            
         } else {
-            alert('Errou o login')
+            alert('Errou a senha ou ainda não é cadastrado!')
+            
         }
+
 
     }
 
@@ -55,10 +59,18 @@ function UserProvider({ children }) {
                     });
             })
 
+        if (!signUpError) {
+            navigation.navigate('/')
+        } else {
+            alert('Não foi possível concluir o cadastro.')
+        }
     };
 
     return (
-        <UserContext.Provider value={{ test: 'test', userAuth, user, handleRegister }}>
+        <UserContext.Provider value={{
+            userAuth,
+            handleRegister,
+        }}>
             {children}
         </UserContext.Provider>
 

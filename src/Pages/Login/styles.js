@@ -47,3 +47,10 @@ export const InputArea = styled.div`
     flex-direction: column;
     justify-content: space-between;
  `;
+
+ export const Question = styled.p`
+    color: #000000;
+    font-size: 18px;
+    margin: 20px 0;
+    cursor: pointer;
+ `;
