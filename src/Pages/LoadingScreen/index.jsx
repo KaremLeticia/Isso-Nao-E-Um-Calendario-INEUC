@@ -24,7 +24,7 @@ const LoadingScreen = () => {
       
         setTimeout(() => {
 
-            navigate('home')
+            navigate('/home')
 
         }, 3000)
       

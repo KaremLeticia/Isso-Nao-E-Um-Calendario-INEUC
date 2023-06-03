@@ -52,7 +52,7 @@ const Login = () => {
                         />
                     </InputArea>
 
-                    <Link to='loading'>
+                    <Link to='/loading'>
                         <Button
                             sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
                             variant='contained'
@@ -62,7 +62,7 @@ const Login = () => {
                         </Button>
                     </Link>
 
-                    <Link to='SignUp' style={{ textDecoration: 'none' }}>
+                    <Link to='/signup' style={{ textDecoration: 'none' }}>
                         <Question>Não possui uma conta?</Question>
                     </Link>
 
