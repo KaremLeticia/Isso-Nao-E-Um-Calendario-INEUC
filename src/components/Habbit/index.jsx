@@ -1,5 +1,7 @@
+import { useContext } from 'react'
 import { firestore } from '../../../firebase'
 import { Checkbox } from '@mui/material'
+import { UserContext } from '../../Context/UserContext'
 
 import {
     Content,
@@ -14,11 +16,14 @@ import {
 
 import { MdDone, MdDelete } from 'react-icons/md'
 
+
 const Habbit = ({ title, deleteHabbit, dayCheck, id }) => {
+
+    const { userData } = useContext(UserContext)
 
     const checkday = async (day) => {
 
-        const docRef = await firestore.collection('data').doc(id).get()
+        const docRef = await firestore.collection('users').doc(userData.userId).collection('data').doc(id).get()
 
         const data = docRef.data()
         const days = data.checking
@@ -43,7 +48,7 @@ const Habbit = ({ title, deleteHabbit, dayCheck, id }) => {
                 break;
         }
 
-        await firestore.collection('data').doc(id).update({
+        await firestore.collection('users').doc(userData.userId).collection('data').doc(id).update({
             checking: days
         })
 
