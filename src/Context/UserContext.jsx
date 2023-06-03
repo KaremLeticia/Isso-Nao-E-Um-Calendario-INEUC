@@ -48,7 +48,6 @@ function UserProvider({ children }) {
                 alert(error.message);
                 signUpError = true;
             }).then(() => {
-                alert('adding database')
                 firestore.collection('users')
                     .doc(auth.currentUser.uid).set({
                         userId: auth.currentUser.uid,
@@ -60,7 +59,9 @@ function UserProvider({ children }) {
             })
 
         if (!signUpError) {
-            navigation.navigate('/')
+            
+            alert('Cadastro realizado com sucesso!')
+
         } else {
             alert('Não foi possível concluir o cadastro.')
         }

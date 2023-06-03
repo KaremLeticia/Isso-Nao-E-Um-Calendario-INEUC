@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { UserContext } from '../../Context/UserContext'
+import { Link } from 'react-router-dom'
 
 import {
     LoginContainer,
@@ -112,6 +113,15 @@ const SignUp = () => {
                     >
                         CADASTRAR
                     </Button>
+
+                    <Link to={'/'}>
+                        <Button
+                            sx={{ width: '30rem', height: '3rem', marginTop: '15px' }}
+                            variant='contained'
+                        >
+                            IR PARA PÁGINA DE LOGIN
+                        </Button>
+                    </Link>
 
                 </LoginContent>
 
