@@ -52,13 +52,15 @@ const Login = () => {
                         />
                     </InputArea>
 
+                    <Link to='Home'>
                         <Button
                             sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
                             variant='contained'
-                            onClick={() => {userAuth(email, password)}}/* Função autenticar login */
+                            onClick={() => { userAuth(email, password) }}/* Função autenticar login */
                         >
                             ENTRAR
                         </Button>
+                    </Link>
 
                     <Link to='SignUp' style={{ textDecoration: 'none' }}>
                         <Question>Não possui uma conta?</Question>

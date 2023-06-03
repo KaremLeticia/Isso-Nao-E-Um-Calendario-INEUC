@@ -1,6 +1,7 @@
 import {
     createBrowserRouter,
     RouterProvider,
+    useNavigate
 } from "react-router-dom";
 
 import ErrorPage from "../Pages/ErrorPage";
@@ -8,6 +9,7 @@ import Login from "../Pages/Login";
 import SignUp from "../Pages/SignUp";
 import Home from "../Pages/Home";
 import Help from "../Pages/Help";
+import UserProvider from '../Context/UserContext'
 
 const Router = () => {
 
@@ -35,6 +37,11 @@ const Router = () => {
         {
             path: "/signup",
             element: <SignUp/>,
+            errorElement: <ErrorPage />,
+        },
+        {
+            path: "/Try",
+            element: <UserProvider/>,
             errorElement: <ErrorPage />,
         }
     ]);

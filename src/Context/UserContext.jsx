@@ -17,7 +17,7 @@ function UserProvider({ children }) {
 
         if (!threwError) {
             
-            navigation.navigate('home')
+            alert('Login efetuado com sucesso!')
             
         } else {
             alert('Errou a senha ou ainda não é cadastrado!')
