@@ -6,11 +6,11 @@ import {
     Items
 } from './styles'
 
-const Days = () => {
+const Days = ({ press }) => {
     return (
         <Container>
 
-            <ButtonArea>
+            <ButtonArea onClick={press}>
                 <CreateItem>Adicione um item</CreateItem>
             </ButtonArea>
 

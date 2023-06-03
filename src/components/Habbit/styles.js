@@ -8,16 +8,29 @@ export const Content = styled.li`
     margin: 10px 0;
 `;
 
-export const TitleArea = styled.div`
-    width: 40%;
+export const DeleteArea = styled.div`
+    width: 10%;
     display: flex;
     align-items: center;
     justify-content: center;
 `;
 
-export const Title = styled.p`
-    
+export const TitleArea = styled.div`
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 `;
+
+export const Ghost = styled.div`
+    width: 10%;
+`;
+
+export const Title = styled.p`
+
+`;
+
+
 
 export const CheckArea = styled.ul`
     width: 60%;
