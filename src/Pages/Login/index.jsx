@@ -52,7 +52,7 @@ const Login = () => {
                         />
                     </InputArea>
 
-                    <Link to='Home'>
+                    <Link to='loading'>
                         <Button
                             sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
                             variant='contained'

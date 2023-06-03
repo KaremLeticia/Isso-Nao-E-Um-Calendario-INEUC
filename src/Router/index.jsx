@@ -10,6 +10,7 @@ import SignUp from "../Pages/SignUp";
 import Home from "../Pages/Home";
 import Help from "../Pages/Help";
 import UserProvider from '../Context/UserContext'
+import LoadingScreen from "../Pages/LoadingScreen";
 
 const Router = () => {
 
@@ -38,6 +39,11 @@ const Router = () => {
             path: "/signup",
             element: <SignUp/>,
             errorElement: <ErrorPage />,
+        },
+        {
+            path: '/loading',
+            element: <LoadingScreen/>,
+            errorElement: <ErrorPage />
         },
         {
             path: "/Try",

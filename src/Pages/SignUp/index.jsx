@@ -20,14 +20,20 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
-    const { handleRegister } = useContext(UserContext) 
+    const { handleRegister } = useContext(UserContext)
 
+    const [username, setUsername] = useState()
     const [email, setEmail] = useState('');
     const [confirmedEmail, setConfirmedEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmedPassword, setConfirmedPassword] = useState('');
     const [emailError, setEmailError] = useState(false);
     const [passwordError, setPasswordError] = useState(false);
+
+    const handleUsernameChange = (event) => {
+        const value = event.target.value;
+        setUsername(value)
+    }
 
     const handleEmailChange = (event) => {
         const value = event.target.value;
@@ -53,6 +59,18 @@ const SignUp = () => {
         setPasswordError(password !== value);
     };
 
+    const clearForm = () => {
+
+        setPasswordError('')
+        setEmail('')
+        setConfirmedEmail('')
+        setPassword('')
+        setConfirmedPassword('')
+        setEmailError(false)
+        setPassword(false)
+
+    }
+
     return (
         <>
             <LoginContainer>
@@ -66,6 +84,13 @@ const SignUp = () => {
                     <LoginTitle>Faça o seu cadastro</LoginTitle>
 
                     <InputArea>
+                        <TextField
+                            sx={{ width: '30rem', marginTop: '15px' }}
+                            placeholder='Digite o seu nome de usuário'
+                            onChange={handleUsernameChange}
+                            value={username}
+                            error={emailError}
+                        />
                         <TextField
                             sx={{ width: '30rem', marginTop: '15px' }}
                             placeholder='Digite o seu e-mail'
@@ -109,7 +134,7 @@ const SignUp = () => {
                     <Button
                         sx={{ width: '30rem', height: '3rem', marginTop: '15px' }}
                         variant='contained'
-                        onClick={() => handleRegister(email, password)/* Função autenticar login */}
+                        onClick={() => {handleRegister(email, password, username); clearForm()}/* Função autenticar login */}
                     >
                         CADASTRAR
                     </Button>

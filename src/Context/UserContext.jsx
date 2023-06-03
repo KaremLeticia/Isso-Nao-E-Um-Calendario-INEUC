@@ -1,11 +1,13 @@
 import { createContext, useState } from 'react';
 import { firebase, auth, firestore } from '../../firebase'
+import Habbit from '../components/Habbit';
 
 export const UserContext = createContext({})
 
 function UserProvider({ children }) {
 
-    const [userId, setUserId] = useState()
+    const [userData, setUserData] = useState(false)
+    const [listData, setListData] = useState([])
     
     const userAuth = async (email, password) => {
 
@@ -18,16 +20,42 @@ function UserProvider({ children }) {
         if (!threwError) {
             
             alert('Login efetuado com sucesso!')
+
+            const userId = auth.currentUser.uid
+
+            const docRef = await firestore.collection('users').doc(userId).get()
+
+            const docData = docRef.data()
+            console.log(docData)
+
+            setUserData(docData)
+
+            const habbitRef = firestore.collection('users').doc(userId).collection('data')
+
+            habbitRef.orderBy('timestamp', 'desc')
+            .onSnapshot(
+                querySnapshot => {
+                    const mock = []
+                    querySnapshot.forEach((doc) => {
+                        const { title, id, checking } = doc.data()
+                        mock.push({
+                            id: id,
+                            data: <Habbit title={title} deleteHabbit={() => deleteHabbit(id)} dayCheck={checking} id={id} />
+                        })
+                    })
+                    setListData(mock)
+                    console.log(mock)
+                }
+            )
+            
             
         } else {
             alert('Errou a senha ou ainda não é cadastrado!')
-            
         }
-
 
     }
 
-    const handleRegister = async (email, password) => {
+    const handleRegister = async (email, password, username) => {
 
         alert('enviado');
 
@@ -51,7 +79,8 @@ function UserProvider({ children }) {
                 firestore.collection('users')
                     .doc(auth.currentUser.uid).set({
                         userId: auth.currentUser.uid,
-                        email: email
+                        email: email,
+                        username: username
                     })
                     .catch((error) => {
                         alert(error.message);
@@ -71,6 +100,8 @@ function UserProvider({ children }) {
         <UserContext.Provider value={{
             userAuth,
             handleRegister,
+            userData,
+            listData
         }}>
             {children}
         </UserContext.Provider>

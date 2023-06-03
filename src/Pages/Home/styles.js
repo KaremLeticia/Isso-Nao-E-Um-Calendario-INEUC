@@ -18,6 +18,7 @@ export const MainContent = styled.section`
 
 export const HabbitContent = styled.ul`
     width: 100%;
+    height: ${(props) => props.height || 'none'};
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -46,4 +47,13 @@ export const FormBox = styled.div`
     justify-content: center;
     background-color: #FFFFFF;
     border: 1px solid black;
+`;
+
+export const LoadingScreen = styled.div`
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #FFFFFF;
 `;

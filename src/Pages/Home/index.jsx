@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState } from 'react'
 import { Modal, TextField, Button } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useAsyncError, useNavigate } from 'react-router-dom'
 import { auth, firestore, firebase } from '../../../firebase'
 import { Howl } from 'howler'
-
 
 import { UserContext } from '../../Context/UserContext'
 
@@ -13,7 +12,8 @@ import {
     Title,
     HabbitContent,
     ModalContainer,
-    FormBox
+    FormBox,
+    LoadingScreen
 } from './styles'
 
 import Header from '../../components/Header'
@@ -24,6 +24,9 @@ import deleteAudio from '../../assets/delete.mp3'
 
 const Home = () => {
 
+    const navigate = useNavigate()
+
+    const { userData, listData } = useContext(UserContext)
     /* Modal open and clsoe */
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
@@ -31,16 +34,16 @@ const Home = () => {
 
     /* HabbitForms */
     const [habbitTitle, setHabbitTitle] = useState('')
+    const [shown, setShown] = useState(false)
 
     /* Habbit list */
     const [habbits, setHabbits] = useState([])
-    const habbitRef = firestore.collection('data');
+    const habbitRef = firestore.collection('users').doc(userData.userId).collection('data')
 
     /* Delete habbit function */
     const deleteHabbit = async (id) => {
 
-        await firestore
-            .collection('data')
+        await habbitRef
             .doc(id)
             .delete()
             .catch((error) => {
@@ -92,7 +95,20 @@ const Home = () => {
 
     }
 
+    const loginCheck = () => {
+
+        { !userData ? navigate('/') : console.log('Usuário logado')}
+
+    }
+
     useEffect(() => {
+
+        loginCheck()
+
+        setHabbits(listData)
+        console.log(listData)
+        console.log(habbits)
+
         habbitRef.orderBy('timestamp', 'desc')
             .onSnapshot(
                 querySnapshot => {
@@ -107,11 +123,11 @@ const Home = () => {
                     setHabbits(mock)
                 }
             )
+
     }, [])
 
     return (
         <>
-            <audio src={deleteAudio} />
             <Modal
                 open={open}
                 onClose={handleClose}
@@ -142,7 +158,7 @@ const Home = () => {
 
             <WelcomeArea>
 
-                <Title>Bem vindo!</Title>
+                <Title>Bem vindo! {userData.username}</Title>
 
             </WelcomeArea>
 
@@ -150,7 +166,7 @@ const Home = () => {
 
                 <Days press={handleOpen} />
 
-                <HabbitContent>
+                <HabbitContent >
 
                     {habbits.map((item) => item.data)}
 
