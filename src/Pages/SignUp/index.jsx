@@ -71,11 +71,13 @@ const SignUp = () => {
 
     }
 
-    const sign = async () => {
+    const sign = () => {
 
-        await handleRegister(email, password, username).then(() => {
-     navigate('/')
-})
+        if (handleRegister(email, password, username)) {
+navigate('/')
+} else {
+  alert('Falha')
+}
 
     }
 
