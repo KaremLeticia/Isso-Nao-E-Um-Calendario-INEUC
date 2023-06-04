@@ -153,14 +153,15 @@ const SignUp = () => {
                         CADASTRAR
                     </Button>
 
-                    <Link to={'/'}>
+                    
                         <Button
                             sx={{ width: '30rem', height: '3rem', marginTop: '15px' }}
                             variant='contained'
+                            onClick={() => navigate('/')}
                         >
                             IR PARA PÁGINA DE LOGIN
                         </Button>
-                    </Link>
+             
 
                 </LoginContent>
 

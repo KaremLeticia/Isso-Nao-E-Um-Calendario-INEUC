@@ -16,6 +16,10 @@ export const DisplayContent = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #1565C0;
+
+    @media (max-width: 1400px) {
+        display: none;
+    }
 `;
 
 export const DisplayImg = styled.img`
@@ -30,6 +34,19 @@ export const LoginContent = styled.div`
     align-items: center;
     justify-content: center;
     background-color: #FFFFFF;
+
+    @media (max-width: 540px) {
+        width: 97%;
+        height: 98%;
+
+        :nth-child(3n) {
+            width: 90%;   
+        }
+
+        :nth-child(4n) {
+            width: 90%;   
+        }
+    }
 `;
 
 export const LoginTitle = styled.h1`
@@ -42,7 +59,21 @@ export const Span = styled.span`
  `;
 
 export const InputArea = styled.div`
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @media (max-width: 540px) {
+
+        width: 100%;
+        
+        :nth-child(1n) {
+            
+            align-self: center;
+            width: 95.5%;
+            
+        }
+
+    }
  `;
