@@ -57,8 +57,6 @@ function UserProvider({ children }) {
 
     const handleRegister = async (email, password, username) => {
 
-        alert('enviado');
-
         if (email.length === 0) {
             alert('Por favor, insira seu e-mail');
             return;
