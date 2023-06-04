@@ -90,9 +90,11 @@ function UserProvider({ children }) {
         if (!signUpError) {
             
             alert('Cadastro realizado com sucesso!')
+return true
 
         } else {
             alert('Não foi possível concluir o cadastro.')
+return false
         }
     };
 
