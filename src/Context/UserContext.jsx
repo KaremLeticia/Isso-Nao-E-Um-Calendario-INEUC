@@ -8,7 +8,7 @@ function UserProvider({ children }) {
 
     const [userData, setUserData] = useState(false)
     const [listData, setListData] = useState([])
-    
+
     const userAuth = async (email, password) => {
 
         let threwError = false;
@@ -18,10 +18,11 @@ function UserProvider({ children }) {
             });
 
         if (!threwError) {
-            
+
             alert('Login efetuado com sucesso!')
 
             const userId = auth.currentUser.uid
+            localStorage.setItem('id', JSON.stringify(userId))
 
             const docRef = await firestore.collection('users').doc(userId).get()
 
@@ -33,24 +34,26 @@ function UserProvider({ children }) {
             const habbitRef = firestore.collection('users').doc(userId).collection('data')
 
             habbitRef.orderBy('timestamp', 'desc')
-            .onSnapshot(
-                querySnapshot => {
-                    const mock = []
-                    querySnapshot.forEach((doc) => {
-                        const { title, id, checking } = doc.data()
-                        mock.push({
-                            id: id,
-                            data: <Habbit title={title} deleteHabbit={() => deleteHabbit(id)} dayCheck={checking} id={id} />
+                .onSnapshot(
+                    querySnapshot => {
+                        const mock = []
+                        querySnapshot.forEach((doc) => {
+                            const { title, id, checking } = doc.data()
+                            mock.push({
+                                id: id,
+                                data: <Habbit title={title} deleteHabbit={() => deleteHabbit(id)} dayCheck={checking} id={id} />
+                            })
                         })
-                    })
-                    setListData(mock)
-                    console.log(mock)
-                }
-            )
-            
-            
+                        setListData(mock)
+                        console.log(mock)
+                    }
+                )
+                
+            return true
+
         } else {
             alert('Errou a senha ou ainda não é cadastrado!')
+            return false
         }
 
     }
@@ -86,13 +89,13 @@ function UserProvider({ children }) {
             })
 
         if (!signUpError) {
-            
+
             alert('Cadastro realizado com sucesso!')
-return true
+            return true
 
         } else {
             alert('Não foi possível concluir o cadastro.')
-return false
+            return false
         }
     };
 

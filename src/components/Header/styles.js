@@ -22,6 +22,7 @@ export const NavContent = styled.ul`
 export const NavButtons = styled.li`
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 0 2rem;
     color: #FFFFFF;
     text-decoration: none;

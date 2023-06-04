@@ -13,7 +13,7 @@ import {
     HabbitContent,
     ModalContainer,
     FormBox,
-    LoadingScreen
+    ModalTitle,
 } from './styles'
 
 import Header from '../../components/Header'
@@ -136,9 +136,13 @@ const Home = () => {
 
                     <FormBox>
 
+                        <ModalTitle>Adicione um hábtio!</ModalTitle>
+
                         <TextField
-                            sx={{ width: '30rem' }}
+                            sx={{ width: '30rem'}}
+                            inputProps={{ maxLength: 30, style: {textAlign: 'center'} }}
                             onChange={(event) => setHabbitTitle(event.target.value)}
+                            
                         />
 
                         <Button

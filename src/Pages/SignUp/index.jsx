@@ -71,13 +71,17 @@ const SignUp = () => {
 
     }
 
-    const sign = () => {
+    const sign = async () => {
 
-        if (handleRegister(email, password, username)) {
-navigate('/')
-} else {
-  alert('Falha')
-}
+        const result = await handleRegister(email, password, username)
+
+        if (result) {
+            navigate('/')
+        } else {
+            alert('Falha')
+        }
+
+        clearForm()
 
     }
 
@@ -144,7 +148,7 @@ navigate('/')
                     <Button
                         sx={{ width: '30rem', height: '3rem', marginTop: '15px' }}
                         variant='contained'
-                        onClick={() => sign()/*{handleRegister(email, password, username); clearForm()} Função autenticar login */}
+                        onClick={() => sign()/*Função autenticar login */}
                     >
                         CADASTRAR
                     </Button>

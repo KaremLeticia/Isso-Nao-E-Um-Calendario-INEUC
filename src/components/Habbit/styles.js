@@ -27,10 +27,10 @@ export const Ghost = styled.div`
 `;
 
 export const Title = styled.p`
-
+    color: #1565C0;
+    font-size: 18px;
+    font-weight: 600;
 `;
-
-
 
 export const CheckArea = styled.ul`
     width: 60%;

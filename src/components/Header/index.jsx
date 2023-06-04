@@ -19,21 +19,21 @@ const Header = () => {
 
                     <NavContent>
 
-                        <Link to={'#'} style={{ textDecoration: 'none' }}>
-                            <NavButtons><FcCalendar size={'35px'}/><Span>INEUC </Span>não é um calendário</NavButtons>
-                        </Link>
+                        <NavButtons>
+                            <Link to={'#'} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}><FcCalendar size={'35px'} /><Span>INEUC </Span>não é um calendário</Link>
+                        </NavButtons>
 
-                        <Link to={'#'} style={{ textDecoration: 'none' }}>
-                            <NavButtons>Como usar</NavButtons>
-                        </Link>
+                        <NavButtons>
+                            <Link to={'#'} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>Como usar</Link>
+                        </NavButtons>
 
-                        <Link to={'/SignUp'} style={{ textDecoration: 'none' }}>
-                            <NavButtons>Cadastre-se</NavButtons>
-                        </Link>
+                        <NavButtons>
+                            <Link to={'/SignUp'} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>Cadastre-se</Link>
+                        </NavButtons>
 
-                        <Link to={'/ajuda'} style={{ textDecoration: 'none' }}>
-                            <NavButtons>Ajuda</NavButtons>
-                        </Link>
+                        <NavButtons>
+                            <Link to={'/ajuda'} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#FFFFFF' }}>Ajuda</Link>
+                        </NavButtons>
 
                     </NavContent>
 

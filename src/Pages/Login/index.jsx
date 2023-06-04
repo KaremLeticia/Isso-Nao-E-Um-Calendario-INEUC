@@ -20,9 +20,18 @@ import calendar from '../../assets/calendar.svg'
 const Login = () => {
 
     const { userAuth } = useContext(UserContext)
+    const navigate = useNavigate()
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const auth = async () => {
+
+        const result = await userAuth(email, password)
+
+        result ? navigate('/loading') : console.log('Fail')
+
+    }
 
 
     return (
@@ -52,15 +61,15 @@ const Login = () => {
                         />
                     </InputArea>
 
-                    <Link to='/loading'>
-                        <Button
-                            sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
-                            variant='contained'
-                            onClick={() => { userAuth(email, password) }}/* Função autenticar login */
-                        >
-                            ENTRAR
-                        </Button>
-                    </Link>
+
+                    <Button
+                        sx={{ width: '30rem', height: '3rem', marginTop: '20px' }}
+                        variant='contained'
+                        onClick={() => {auth()}}/* Função autenticar login */
+                    >
+                        ENTRAR
+                    </Button>
+
 
                     <Link to='/signup' style={{ textDecoration: 'none' }}>
                         <Question>Não possui uma conta?</Question>
