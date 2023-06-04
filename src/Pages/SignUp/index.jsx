@@ -71,6 +71,14 @@ const SignUp = () => {
 
     }
 
+    const sign = async () => {
+
+        await handleRegister(email, password, username).then(() => {
+     navigate('/')
+})
+
+    }
+
     return (
         <>
             <LoginContainer>
@@ -134,7 +142,7 @@ const SignUp = () => {
                     <Button
                         sx={{ width: '30rem', height: '3rem', marginTop: '15px' }}
                         variant='contained'
-                        onClick={() => {handleRegister(email, password, username); clearForm()}/* Função autenticar login */}
+                        onClick={() => sign()/*{handleRegister(email, password, username); clearForm()} Função autenticar login */}
                     >
                         CADASTRAR
                     </Button>
